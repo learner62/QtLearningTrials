@@ -3,9 +3,9 @@
 
 #include <QDebug>
 
-extern QString etunimi, sukunimi, puhelinnumero;
+extern QString firstName, familyName, telephoneNumber;
 
-QString etunimi, sukunimi, puhelinnumero;
+QString firstName = NULL, familyName = NULL, telephoneNumber = NULL;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,24 +19,42 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_etunimi_textEdited(const QString &arg1)
+void MainWindow::on_firstName_textEdited(const QString &arg1)
 {
-    etunimi = arg1;
+    firstName = arg1;
 }
 
-void MainWindow::on_sukunimi_textEdited(const QString &arg1)
+void MainWindow::on_familyName_textEdited(const QString &arg1)
 {
-    sukunimi = arg1;
+    familyName = arg1;
 }
 
-void MainWindow::on_puhelinnumero_textEdited(const QString &arg1)
+void MainWindow::on_telephoneNumber_textEdited(const QString &arg1)
 {
-    puhelinnumero = arg1;
+    telephoneNumber = arg1;
 }
 
-void MainWindow::on_tulosta_pressed()
+void MainWindow::on_print_pressed()
 {
-    qDebug() << "Etunimi on " << etunimi << endl;
-    qDebug() << "Sukunimi on " << sukunimi << endl;
-    qDebug() << "Puhelinnumero on " << puhelinnumero<< endl;
+    qDebug() << "First name is " << firstName << endl;
+    qDebug() << "Last name is " << familyName << endl;
+    qDebug() << "Telephone number is " << telephoneNumber << endl;
+}
+
+void MainWindow::on_actionPrint_triggered()
+{
+    if (firstName != NULL)
+        qDebug() << "First name is " << firstName << endl;
+    else
+        qDebug() << "First name not set." << endl;
+
+    if (familyName != NULL)
+        qDebug() << "Family name is " << familyName << endl;
+    else
+        qDebug() << "Family name not set." << endl;
+
+    if (telephoneNumber != NULL)
+        qDebug() << "Telephone number is " << telephoneNumber << endl;
+    else
+        qDebug() << "Telephone number not set." << endl;
 }

@@ -16,10 +16,12 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_etunimi_textEdited(const QString &arg1);
-    void on_sukunimi_textEdited(const QString &arg1);
-    void on_puhelinnumero_textEdited(const QString &arg1);
-    void on_tulosta_pressed();
+    void on_firstName_textEdited(const QString &arg1);
+    void on_familyName_textEdited(const QString &arg1);
+    void on_telephoneNumber_textEdited(const QString &arg1);
+    void on_print_pressed();
+
+    void on_actionPrint_triggered();
 
 private:
     Ui::MainWindow *ui;
